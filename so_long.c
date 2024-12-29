@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 13:42:45 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/28 18:58:12 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2024/12/29 11:48:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char *argv[])
     game = inti_game(argv);
     if (!game)
     return (1);
-	mlx_hook(game->win, 2, 1L << 0, handle_keypress, game);
+	mlx_hook(game->window, 2, 1L << 0, handle_keypress, game);
 	mlx_hook(game->win, 2, 1L << 0, close_window, NULL); // pass the game struct so u can call the function free_exit(game) to free everything
     mlx_loop(game->mlx);
     // free(game); 

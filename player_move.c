@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:49:51 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/28 18:56:57 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2024/12/29 11:48:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ t_player *init_player()
 	return(player);
 	// t_player - part of game struct 
 }
-t_player *playerrmove(int i,int j,t_game *game)
-{
+//t_player *playerrmove(int i,int j,t_game *game)
+//{
 		
-	game->player->player_x=i;
-	game->player->player_y=j;
+//	game->player->player_x=i;
+//	game->player->player_y=j;
 	
-	return(game->player);
-}
+//	return(game->player);
+//}
 t_game *move_player(t_game *game,int x,int y)
 {
 	int newx;
@@ -59,12 +59,11 @@ t_game *move_player(t_game *game,int x,int y)
 	
 	newx=game->player->player_x+x;
 	newy=game->player->player_x+y;
-	if (game->map->array[newx][newy]=='1')
+	if (game->map->array[newx][newy]!='1')
 	{
 		game->player->player_x=newx;
 		game->player->player_y=newy;
 			
-	}
 	if (game->map->array[newx][newy]=='C')
 	{
 			game->count_collectible--;
@@ -76,6 +75,7 @@ t_game *move_player(t_game *game,int x,int y)
 			{
 				exit_game(game);
 			}
+	}
 	}
 	redraw_player(game, game->mlx, game->win);
 return(game);
