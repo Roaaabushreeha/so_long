@@ -6,7 +6,7 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 09:36:19 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/30 12:00:11 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:13:00 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	open_map(char **av, t_game *game)
 	}
 	return (map_fd);
 }
+
 t_map	*storemap(t_game *game, char **av)
 {
 	int	line_count;

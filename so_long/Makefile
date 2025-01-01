@@ -1,8 +1,8 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -Lminilibx-linux -lmlx -lXext -lX11
 
-SLSRCS = so_long.c map.c init_map.c window.c imagesdec.c player_move.c collectible.c free.c valid.c
+SLSRCS = so_long.c map.c init_map.c window.c imagesdec.c player_move.c collectible.c free.c valid.c  valid_path.c flood_fill.c
 
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a

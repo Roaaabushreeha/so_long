@@ -6,7 +6,7 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 18:29:37 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/29 18:19:51 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:11:36 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,21 @@ char	**init_map(char *file)
 	len = length(fd);
 	close(fd);
 	map = malloc((len + 1) * sizeof(char *));
+	if (!map)
+		return (NULL);
 	i = 0;
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
 	{
-		map[i] = line;
+		map[i++] = line;
 		line = get_next_line(fd);
-		i++;
 	}
 	free(line);
 	close(fd);
 	return (map);
 }
+
 t_map	*initmap(t_game *game)
 {
 	t_map	*map;

@@ -6,29 +6,23 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:31:44 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/30 12:02:19 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:13:55 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// int	openwindow(t_game *game)
-// {
-// 	game->mlx = mlx_init();
-// 	game->win = mlx_new_window(game->mlx, game->map->width * 64,
-// 			game->map->height * 64, "SO_LONG");
-// 	return (0);
-// }
-
-int	close_window(void *param)
+int	close_window(void *param, t_game *game)
 {
 	(void)param;
-	exit(0);
+	free_images(game);
+	mlx_destroy_window(game->mlx, game->win);
+	free_map(game);
+	exit(1);
 }
 
-int	close_window_event(int keycode, t_game *game)
+int	free_game(t_game *game)
 {
-	(void)keycode;
-	mlx_destroy_window(game->mlx, game->win);
+	exit_game(game);
 	exit(0);
 }

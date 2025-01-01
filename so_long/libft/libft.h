@@ -12,17 +12,16 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <fcntl.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <strings.h>
 # include <unistd.h>
-#include<fcntl.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000
 # endif
-
 
 typedef struct s_list
 {
@@ -76,9 +75,9 @@ t_list				*ft_lstlast(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-						char	*f_strdup(const char *s);
-char	*f_strchr(const char *s, int c);
-char	*f_strjoin(char const *s1, char const *s2);
-size_t	f_strlen(const char *s);
-char	*get_next_line(int fd);
+char				*f_strdup(const char *s);
+char				*f_strchr(const char *s, int c);
+char				*f_strjoin(char const *s1, char const *s2);
+size_t				f_strlen(const char *s);
+char				*get_next_line(int fd);
 #endif

@@ -6,7 +6,7 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 17:10:13 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/30 17:36:51 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/01 15:14:33 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	check_collectible(t_game *game)
 
 int	number_collectib(t_game *game)
 {
-	int count;
-	int i;
-	int j;
+	int	count;
+	int	i;
+	int	j;
+
 	i = 0;
 	count = 0;
-
 	while (i < game->map->height)
 	{
 		j = 0;
@@ -35,7 +35,6 @@ int	number_collectib(t_game *game)
 			{
 				count++;
 			}
-
 			j++;
 		}
 		i++;

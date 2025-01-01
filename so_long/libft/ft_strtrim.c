@@ -33,4 +33,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = ft_substr((char *)s1, start, end - start + 1);
 	return (str);
 }
-

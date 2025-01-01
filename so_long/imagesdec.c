@@ -6,7 +6,7 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 17:23:49 by rabu-shr          #+#    #+#             */
-/*   Updated: 2024/12/30 12:08:51 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/01 17:35:24 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	whichimage(int i, int j, t_game *game)
 	else if (game->map->array[i][j] == 'C')
 		image = game->image->collectible;
 	else
-		return 1 ;
+		return (1);
 	mlx_put_image_to_window(game->mlx, game->win, image, j * 64, i * 64);
 	return (0);
 }
@@ -77,5 +77,5 @@ void	redraw_player(t_game *game, void *mlx, void *win)
 {
 	load(game);
 	mlx_put_image_to_window(mlx, win, game->image->player,
-			game->player->player_x * 64, game->player->player_y * 64);
+		game->player->player_x * 64, game->player->player_y * 64);
 }
