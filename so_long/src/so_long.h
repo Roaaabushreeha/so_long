@@ -6,13 +6,13 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 14:50:37 by rabu-shr          #+#    #+#             */
-/*   Updated: 2025/01/01 16:55:05 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:44:06 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>

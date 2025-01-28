@@ -1,31 +1,32 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -Lminilibx-linux -lmlx -lXext -lX11
+SRCS_DIR = src
 
-SLSRCS = so_long.c map.c init_map.c window.c imagesdec.c player_move.c collectible.c free.c valid.c  valid_path.c flood_fill.c
+SLSRCS = so_long.c map.c init_map.c imagesdec.c player_move.c collectible.c free.c valid.c valid_path.c flood_fill.c
 
+SRCS = $(addprefix $(SRCS_DIR)/, $(SLSRCS))
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
 
-SOOBJ = $(SLSRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 NAME = so_long
 
-
 all: $(NAME)
 
-$(NAME): $(SOOBJ) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(SOOBJ) $(MLXFLAGS) -o $@ -L $(LIBFT_DIR) -lft
+$(NAME): $(OBJS) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJS) $(MLXFLAGS) -o $@ -L $(LIBFT_DIR) -lft
 
-$(SOOBJ): %.o : %.c
-	$(CC) $(CFLAGS) $(MLXFLAGS) -c $< -o $@
+$(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT_A):
-	make -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 	$(MAKE) clean -C $(LIBFT_DIR)
-	rm -rf $(SOOBJ)
+	rm -rf $(OBJS)
 
 fclean: clean
 	$(MAKE) fclean -C $(LIBFT_DIR)

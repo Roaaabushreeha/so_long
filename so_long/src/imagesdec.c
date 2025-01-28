@@ -6,7 +6,7 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 17:23:49 by rabu-shr          #+#    #+#             */
-/*   Updated: 2025/01/01 17:35:24 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:50:36 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ t_image	*delcarimages(t_game *game)
 		exit(1);
 	image->img_height = 64;
 	image->img_width = 64;
-	image->floor = mlx_xpm_file_to_image(game->mlx, "floor.xpm",
+	image->floor = mlx_xpm_file_to_image(game->mlx, "./pic/floor.xpm",
 			&image->img_width, &image->img_height);
-	image->wall = mlx_xpm_file_to_image(game->mlx, "wall.xpm",
+	image->wall = mlx_xpm_file_to_image(game->mlx, "./pic/wall.xpm",
 			&image->img_width, &image->img_height);
-	image->player = mlx_xpm_file_to_image(game->mlx, "re.xpm",
+	image->player = mlx_xpm_file_to_image(game->mlx, "./pic/re.xpm",
 			&image->img_height, &image->img_width);
-	image->exit = mlx_xpm_file_to_image(game->mlx, "tower.xpm",
+	image->exit = mlx_xpm_file_to_image(game->mlx, "./pic/tower.xpm",
 			&image->img_width, &image->img_height);
-	image->collectible = mlx_xpm_file_to_image(game->mlx, "crown.xpm",
+	image->collectible = mlx_xpm_file_to_image(game->mlx, "./pic/crown.xpm",
 			&image->img_height, &image->img_width);
 	return (image);
 }
@@ -78,4 +78,13 @@ void	redraw_player(t_game *game, void *mlx, void *win)
 	load(game);
 	mlx_put_image_to_window(mlx, win, game->image->player,
 		game->player->player_x * 64, game->player->player_y * 64);
+}
+
+int	close_window(void *param, t_game *game)
+{
+	(void)param;
+	free_images(game);
+	mlx_destroy_window(game->mlx, game->win);
+	free_map(game);
+	exit(1);
 }

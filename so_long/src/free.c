@@ -6,7 +6,7 @@
 /*   By: rabu-shr <rabu-shr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 18:30:32 by rabu-shr          #+#    #+#             */
-/*   Updated: 2025/01/01 15:13:36 by rabu-shr         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:50:29 by rabu-shr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,11 @@ void	free_2d_array(char **array, int height)
 		i++;
 	}
 	free(array);
+}
+
+
+int	free_game(t_game *game)
+{
+	exit_game(game);
+	exit(0);
 }
